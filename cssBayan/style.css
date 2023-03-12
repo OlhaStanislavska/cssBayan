@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap');
+
+html {
+    scroll-behavior: smooth; 
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(243, 238, 226);
+    min-width: 320px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.wrapper {
+    width: 80%;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 1.35rem 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion {
+    display: block;
+	font-size: inherit;
+	margin: 0px;
+}
+
+.accordion__line {
+    width: 100%;
+    border: .05rem rgb(190, 188, 188) solid;
+}
+
+.accordion__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.accordion__title, 
+.accordion-input,
+.accordion__icon {
+    display: block;
+}
+
+.accordion__title {
+    color: blue;
+    transition: all .2s ease-in-out;
+}
+
+.accordion-input {
+    visibility: hidden;
+    display: none;
+}
+
+.accordion-input:checked ~ .accordion__content {
+    max-height: 25rem;
+}
+
+.accordion-input:checked ~ .accordion__content > .meme {
+    transform: scale(1);
+    opacity: 1;
+}
+.accordion-input:checked ~ .accordion__header > .accordion__icon {
+    transform: rotate(90deg);
+}
+
+.accordion-input:checked ~ .accordion__header > .accordion__title {
+    color: black;
+}
+
+.accordion__icon {
+    background-image: url("./assets/x-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1.2rem 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    transform: rotate(45deg);
+    margin-left: 1rem;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+}
+
+.accordion__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.meme {
+    display: block;
+    margin: 0 2rem 2rem 2rem;
+    transform: scale(0);
+    opacity: 0;
+    width: calc(100% - 4rem);
+    max-width: 20rem;
+    transition: all 0.5s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1.6rem;
+    }
+    h1 {
+        font-size: 2.7rem;
+        margin: 1.7rem 0;
+    }
+    .accordion__header {
+        padding: 1.8rem 0;
+    }
+    .accordion__icon {
+        background-size: 1.4rem 1.4rem;
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        font-size: 2rem;
+    }
+    h1 {
+        font-size: 3.2rem;
+        margin: 2rem 0;
+    }
+    .accordion__header {
+        padding: 2.1rem 0;
+    }
+    .accordion__icon {
+        background-size: 1.6rem 1.6rem;
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+}
+
+@media (hover: hover) {
+    .accordion-wrapper:hover .accordion__title {
+        color: black;
+    }
+    .accordion-wrapper:hover .accordion__icon {
+        opacity: 1;
+    }
+    .accordion {
+        cursor: pointer;
+    }
+    .accordion:hover .accordion__content {
+        max-height: 25rem;
+    }
+    .accordion:hover .meme {
+        transform: scale(1);
+        opacity: 1;
+    }
+    .accordion:hover .accordion__icon {
+        transform: rotate(90deg);
+    }
+    .accordion:active {
+        opacity: .8;
+    }
+    .accordion:active .accordion__title {
+        color: blue;
+    }
+}
+
